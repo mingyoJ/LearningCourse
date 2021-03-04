@@ -1,9 +1,25 @@
-from flask import render_template, flash, redirect, url_for
+from flask import (
+    render_template,
+    flash,
+    redirect,
+    url_for,
+    request,
+)
+from flask_login import (
+    current_user,
+    login_user,
+    logout_user,
+    login_required,
+)
+from werkzeug.urls import url_parse
+
 from app import app
 from app.forms import LoginForm
+from app.models import User
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     user = {'username': 'jmg'}
     posts = [
@@ -16,14 +32,33 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home Page', posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+
     form = LoginForm()
     if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data))
-        return redirect(url_for('index'))
+        user = User.query.filter_by(username=form.username.data).first()
+        if user and user.check_password(form.password.data):
+            login_user(user, remember=form.remember_me.data)
+            next_page = request.args.get('next')
+
+            # For secure, check next_page with url_parse
+            # .netloc parses host name of url
+            # Relative url has a path but no hostname => not netloc
+            if not next_page or url_parse(next_page).netloc:
+                next_page = url_for('index')
+            return redirect(url_for('index'))
+
+        flash('Invalid username or password')
+        return redirect(url_for('login'))
+
     return render_template('login.html', title='Sign In', form=form)
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
