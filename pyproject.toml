@@ -1,0 +1,10 @@
+[tool.black]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | migrations
+  | __init__.py
+  | __pycache__
+)/
+'''
