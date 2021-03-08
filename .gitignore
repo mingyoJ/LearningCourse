@@ -133,3 +133,6 @@ dmypy.json
 
 # SQLite db files
 *.db
+
+# Flask log folder
+logs
