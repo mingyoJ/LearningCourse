@@ -19,3 +19,6 @@ class Config(object):
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     ADMINS = ["examples@abc.com"]  # Address that will receive error
+
+    # Pagination setting
+    POSTS_PER_PAGE = 3
