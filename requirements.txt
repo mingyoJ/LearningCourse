@@ -22,3 +22,4 @@ WTForms==2.3.3
 pre-commit
 flask-mail
 pyjwt
+flask-bootstrap
