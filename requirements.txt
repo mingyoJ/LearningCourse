@@ -23,3 +23,4 @@ pre-commit
 flask-mail
 pyjwt
 flask-bootstrap
+flask-moment
