@@ -24,3 +24,4 @@ flask-mail
 pyjwt
 flask-bootstrap
 flask-moment
+flask-babel

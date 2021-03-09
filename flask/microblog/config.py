@@ -22,3 +22,6 @@ class Config(object):
 
     # Pagination setting
     POSTS_PER_PAGE = 3
+
+    # Babel multi-lang supports
+    LANGUAGES = ["en", "es", "ko"]
