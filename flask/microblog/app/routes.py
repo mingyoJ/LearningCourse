@@ -7,6 +7,7 @@ from flask import (
     url_for,
     request,
     g,
+    jsonify,
 )
 from flask_login import (
     current_user,
@@ -30,6 +31,7 @@ from app.forms import (
 )
 from app.models import User, Post
 from app.email import send_password_reset_email
+from app.translate import translate
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -274,3 +276,18 @@ def reset_password(token):
         return redirect(url_for("login"))
 
     return render_template("reset_password.html", form=form)
+
+
+# @login_required
+@app.route("/translate", methods=["POST"])
+def translate_text():
+    res = jsonify(
+        {
+            "text": translate(
+                request.form["text"],
+                request.form["source_language"],
+                request.form["dest_language"],
+            )
+        }
+    )
+    return res
