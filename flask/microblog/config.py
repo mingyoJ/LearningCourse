@@ -24,4 +24,4 @@ class Config(object):
     POSTS_PER_PAGE = 3
 
     # Babel multi-lang supports
-    LANGUAGES = ["en", "es", "ko"]
+    LANGUAGES = ["en", "es"]
