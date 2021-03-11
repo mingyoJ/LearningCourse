@@ -24,7 +24,7 @@ from app.models import User
 @bp.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("main.index"))
 
     form = LoginForm()
     if form.validate_on_submit():
@@ -37,8 +37,8 @@ def login():
             # .netloc parses host name of url
             # Relative url has a path but no hostname => not netloc
             if not next_page or url_parse(next_page).netloc:
-                next_page = url_for("index")
-            return redirect(url_for("index"))
+                next_page = url_for("main.index")
+            return redirect(url_for("main.index"))
 
         flash(_("Invalid username or password"))
         return redirect(url_for("auth.login"))
@@ -49,13 +49,13 @@ def login():
 @bp.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for("index"))
+    return redirect(url_for("main.index"))
 
 
 @bp.route("/register", methods=["GET", "POST"])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("main.index"))
 
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -72,7 +72,7 @@ def register():
 @bp.route("/reset_password_request", methods=["GET", "POST"])
 def reset_password_request():
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("main.index"))
 
     form = ResetPasswordRequestForm()
     if form.validate_on_submit():
@@ -91,11 +91,11 @@ def reset_password_request():
 @bp.route("/reset_password/<token>", methods=["GET", "POST"])
 def reset_password(token):
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("main.index"))
 
     user = User.verify_reset_password_token(token)
     if not user:
-        return redirect(url_for("index"))
+        return redirect(url_for("main.index"))
 
     form = ResetPasswordForm()
     if form.validate_on_submit():
