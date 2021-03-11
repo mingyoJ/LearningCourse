@@ -17,7 +17,7 @@ from config import Config
 app = Flask(__name__)
 
 login = LoginManager(app)
-login.login_view = "login"
+login.login_view = "auth.login"
 login.login_message = _l("Please log in to access this page.")
 
 app.config.from_object(Config)
@@ -31,9 +31,13 @@ moment = Moment(app)
 
 babel = Babel(app)
 
+mail = Mail(app)
+
 from app.errors import bp as errors_bp
+from app.auth import bp as auth_bp
 
 app.register_blueprint(errors_bp)
+app.register_blueprint(auth_bp, url_prefix="/auth")
 
 if not app.debug:
     # Send debugging error message to mail
@@ -75,8 +79,6 @@ if not app.debug:
 
     app.logger.setLevel(logging.INFO)
     app.logger.info("Microblog startup")
-
-mail = Mail(app)
 
 
 @babel.localeselector
