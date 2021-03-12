@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-10 16:28+0900\n"
+"POT-Creation-Date: 2021-03-12 14:18+0900\n"
 "PO-Revision-Date: 2021-03-09 18:51+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ko\n"
@@ -18,132 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
 
-#: app/__init__.py:21
+#: app/__init__.py:20
 msgid "Please log in to access this page."
 msgstr "본 페이지에 접근하려면 로그인 하십시오."
-
-#: app/email.py:25
-msgid "[Microblog] Reset Your Password"
-msgstr "[Microblog] 비밀번호 초기화"
-
-#: app/forms.py:22 app/forms.py:29 app/forms.py:49
-msgid "Username"
-msgstr "아이디"
-
-#: app/forms.py:23 app/forms.py:31 app/forms.py:81
-msgid "Password"
-msgstr "비밀번호"
-
-#: app/forms.py:24
-msgid "Remember Me"
-msgstr "기억하기"
-
-#: app/forms.py:25 app/routes.py:92 app/templates/login.html:5
-msgid "Sign In"
-msgstr "로그인"
-
-#: app/forms.py:30 app/forms.py:76
-msgid "Email"
-msgstr "이메일"
-
-#: app/forms.py:33 app/forms.py:83
-msgid "Repeat Password"
-msgstr "비밀번호 재입력"
-
-#: app/forms.py:35 app/routes.py:115 app/templates/register.html:5
-msgid "Register"
-msgstr "가입하기"
-
-#: app/forms.py:40
-msgid "Please use a different username."
-msgstr "다른 아이디를 사용해주세요."
-
-#: app/forms.py:45
-msgid "Please use a different email address."
-msgstr "다른 이메일을 사용해주세요"
-
-#: app/forms.py:50
-msgid "About me"
-msgstr "나에 관해"
-
-#: app/forms.py:51 app/forms.py:65 app/forms.py:72
-msgid "Submit"
-msgstr "제출하기"
-
-#: app/forms.py:61
-msgid "Please use a different username!"
-msgstr "다른 아이디를 사용해주세요!"
-
-#: app/forms.py:70
-msgid "Say something"
-msgstr "글쓰기"
-
-#: app/forms.py:77 app/forms.py:85
-msgid "Request Password Reset"
-msgstr "비밀번호 초기화 요청하기"
-
-#: app/routes.py:50
-msgid "Your post is now live!"
-msgstr "작성한 글이 게제되었습니다!"
-
-#: app/routes.py:62 app/templates/base.html:25
-msgid "Home"
-msgstr "홈페이지"
-
-#: app/routes.py:89
-msgid "Invalid username or password"
-msgstr "잘못된 아이디 또는 패스워드 입니다."
-
-#: app/routes.py:112
-msgid "Congratulations, you are now a registered user!"
-msgstr "축하합니다, 회원가입이 완료되었습니다!"
-
-#: app/routes.py:167
-msgid "Your changes have been saved."
-msgstr "변경이 저장되었습니다."
-
-#: app/routes.py:174 app/templates/edit_profile.html:5
-msgid "Edit Profile"
-msgstr "프로필 수정하기"
-
-#: app/routes.py:185 app/routes.py:208
-#, python-format
-msgid "User %(username)s not found."
-msgstr "없는 유저(%(username)s)입니다."
-
-#: app/routes.py:189
-msgid "You cannot follow yourself!"
-msgstr "자기 자신을 팔로우 할 수 없습니다."
-
-#: app/routes.py:194
-#, python-format
-msgid "You are following %(username)s!"
-msgstr "%(username)s을(를) 팔로잉 중입니다!"
-
-#: app/routes.py:212
-msgid "You cannot unfollow yourself!"
-msgstr "자기 자신을 언팔로우 할 수 없습니다."
-
-#: app/routes.py:217
-#, python-format
-msgid "You are not following %(username)s"
-msgstr "%(username)s을(를) 언팔로우 했습니다."
-
-#: app/routes.py:236 app/templates/base.html:26
-msgid "Explore"
-msgstr "탐색하기"
-
-#: app/routes.py:254
-msgid "Check your email for the instructions to reset your password"
-msgstr "이메일을 확인하여 안내에 따라 비밀번호를 초기화 하십시오"
-
-#: app/routes.py:258 app/templates/reset_password_request.html:5
-msgid "Reset Password"
-msgstr "비밀번호 초기화"
-
-#: app/routes.py:275
-msgid "Your password has been reset."
-msgstr "비밀번호가 초기화 되었습니다."
 
 #: app/translate.py:9
 msgid "Error: the translation service is not configured."
@@ -153,114 +30,252 @@ msgstr "오류: 번역 서비스가 설정되지 않았습니다."
 msgid "Error: the translation service failed."
 msgstr "오류: 번역 서비스가 실패했습니다."
 
-#: app/templates/404.html:4
+#: app/auth/email.py:10
+msgid "[Microblog] Reset Your Password"
+msgstr "[Microblog] 비밀번호 초기화"
+
+#: app/auth/forms.py:20 app/auth/forms.py:27 app/main/forms.py:19
+msgid "Username"
+msgstr "아이디"
+
+#: app/auth/forms.py:21 app/auth/forms.py:29 app/auth/forms.py:52
+msgid "Password"
+msgstr "비밀번호"
+
+#: app/auth/forms.py:22
+msgid "Remember Me"
+msgstr "기억하기"
+
+#: app/auth/forms.py:23 app/auth/routes.py:46 app/auth/templates/login.html:5
+msgid "Sign In"
+msgstr "로그인"
+
+#: app/auth/forms.py:28 app/auth/forms.py:47
+msgid "Email"
+msgstr "이메일"
+
+#: app/auth/forms.py:31 app/auth/forms.py:54
+msgid "Repeat Password"
+msgstr "비밀번호 재입력"
+
+#: app/auth/forms.py:33 app/auth/routes.py:69
+#: app/auth/templates/register.html:5
+msgid "Register"
+msgstr "가입하기"
+
+#: app/auth/forms.py:38
+msgid "Please use a different username."
+msgstr "다른 아이디를 사용해주세요."
+
+#: app/auth/forms.py:43
+msgid "Please use a different email address."
+msgstr "다른 이메일을 사용해주세요"
+
+#: app/auth/forms.py:48 app/auth/forms.py:56
+msgid "Request Password Reset"
+msgstr "비밀번호 초기화 요청하기"
+
+#: app/auth/routes.py:43
+msgid "Invalid username or password"
+msgstr "잘못된 아이디 또는 패스워드 입니다."
+
+#: app/auth/routes.py:66
+msgid "Congratulations, you are now a registered user!"
+msgstr "축하합니다, 회원가입이 완료되었습니다!"
+
+#: app/auth/routes.py:83
+msgid "Check your email for the instructions to reset your password"
+msgstr "이메일을 확인하여 안내에 따라 비밀번호를 초기화 하십시오"
+
+#: app/auth/routes.py:87 app/auth/templates/reset_password_request.html:5
+msgid "Reset Password"
+msgstr "비밀번호 초기화"
+
+#: app/auth/routes.py:104
+msgid "Your password has been reset."
+msgstr "비밀번호가 초기화 되었습니다."
+
+#: app/auth/templates/login.html:12
+msgid "New User?"
+msgstr "새로운 유저인가요?"
+
+#: app/auth/templates/login.html:12
+msgid "Click to Register!"
+msgstr "클릭하여 회원가입하세요!"
+
+#: app/auth/templates/login.html:14
+msgid "Forgot Your Password?"
+msgstr "비밀번호를 잃어버리셨나요?"
+
+#: app/auth/templates/login.html:15
+msgid "Click to Reset It"
+msgstr "클릭하여 초기화하세요"
+
+#: app/auth/templates/reset_password.html:5
+msgid "Reset Your Password"
+msgstr "비밀번호를 초기화하세요"
+
+#: app/errors/templates/404.html:4
 msgid "Not Found"
 msgstr "찾을 수 없음"
 
-#: app/templates/404.html:5 app/templates/500.html:6
+#: app/errors/templates/404.html:5 app/errors/templates/500.html:6
 msgid "Back"
 msgstr "돌아가기"
 
-#: app/templates/500.html:4
+#: app/errors/templates/500.html:4
 msgid "An unexpected error has occurred"
 msgstr "알수없는 에러가 발생했습니다"
 
-#: app/templates/500.html:5
+#: app/errors/templates/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
 msgstr "관리자에게 보고되었습니다. 불편을 끼쳐 죄송합니다!"
 
-#: app/templates/_post.html:14
+#: app/main/forms.py:20
+msgid "About me"
+msgstr "나에 관해"
+
+#: app/main/forms.py:21 app/main/forms.py:35 app/main/forms.py:42
+msgid "Submit"
+msgstr "제출하기"
+
+#: app/main/forms.py:31
+msgid "Please use a different username!"
+msgstr "다른 아이디를 사용해주세요!"
+
+#: app/main/forms.py:40
+msgid "Say something"
+msgstr "글쓰기"
+
+#: app/main/forms.py:46 app/main/routes.py:230
+#, fuzzy
+msgid "Search"
+msgstr "유저"
+
+#: app/main/routes.py:45
+msgid "Your post is now live!"
+msgstr "작성한 글이 게제되었습니다!"
+
+#: app/main/routes.py:57 app/templates/base.html:25
+msgid "Home"
+msgstr "홈페이지"
+
+#: app/main/routes.py:115
+msgid "Your changes have been saved."
+msgstr "변경이 저장되었습니다."
+
+#: app/main/routes.py:122 app/main/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "프로필 수정하기"
+
+#: app/main/routes.py:133 app/main/routes.py:156
+#, python-format
+msgid "User %(username)s not found."
+msgstr "없는 유저(%(username)s)입니다."
+
+#: app/main/routes.py:137
+msgid "You cannot follow yourself!"
+msgstr "자기 자신을 팔로우 할 수 없습니다."
+
+#: app/main/routes.py:142
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "%(username)s을(를) 팔로잉 중입니다!"
+
+#: app/main/routes.py:160
+msgid "You cannot unfollow yourself!"
+msgstr "자기 자신을 언팔로우 할 수 없습니다."
+
+#: app/main/routes.py:165
+#, python-format
+msgid "You are not following %(username)s"
+msgstr "%(username)s을(를) 언팔로우 했습니다."
+
+#: app/main/routes.py:184 app/templates/base.html:26
+msgid "Explore"
+msgstr "탐색하기"
+
+#: app/main/templates/_post.html:14
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(when)s %(username)s의 글"
 
-#: app/templates/_post.html:25
+#: app/main/templates/_post.html:25
 msgid "Translate"
 msgstr "번역하기"
+
+#: app/main/templates/index.html:5
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr "%(username)s님, 안녕하세요!"
+
+#: app/main/templates/index.html:19 app/main/templates/user.html:42
+msgid "Newer posts"
+msgstr "최근 글"
+
+#: app/main/templates/index.html:24 app/main/templates/user.html:47
+msgid "Older posts"
+msgstr "예전 글"
+
+#: app/main/templates/search.html:4
+msgid "Search Results"
+msgstr "검색 결과"
+
+#: app/main/templates/search.html:13
+msgid "Previous results"
+msgstr "이전 결과"
+
+#: app/main/templates/search.html:18
+msgid "Next results"
+msgstr "다음 결과"
+
+#: app/main/templates/user.html:8
+msgid "User"
+msgstr "유저"
+
+#: app/main/templates/user.html:11
+msgid "Last seen on"
+msgstr "최근 방문"
+
+#: app/main/templates/user.html:13
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d명의 팔로워"
+
+#: app/main/templates/user.html:13
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d명을 팔로잉 중"
+
+#: app/main/templates/user.html:15
+msgid "Edit your profile"
+msgstr "프로필 수정하기"
+
+#: app/main/templates/user.html:20
+msgid "Follow"
+msgstr "팔로우"
+
+#: app/main/templates/user.html:27
+msgid "Unfollow"
+msgstr "언팔로우"
 
 #: app/templates/base.html:7
 msgid "Welcome to Microblog"
 msgstr "Microblog에 오신 걸 환영합니다"
 
-#: app/templates/base.html:30
+#: app/templates/base.html:37
 msgid "Login"
 msgstr "로그인"
 
-#: app/templates/base.html:32
+#: app/templates/base.html:39
 msgid "Profile"
 msgstr "프로필"
 
-#: app/templates/base.html:33
+#: app/templates/base.html:40
 msgid "Logout"
 msgstr "로그아웃"
 
-#: app/templates/base.html:70
+#: app/templates/base.html:77
 msgid "Error: Could not contact server."
 msgstr "오류: 번역 서버에 접속할 수 없습니다."
-
-#: app/templates/index.html:5
-#, python-format
-msgid "Hi, %(username)s!"
-msgstr "%(username)s님, 안녕하세요!"
-
-#: app/templates/index.html:19 app/templates/user.html:42
-msgid "Newer posts"
-msgstr "최근 글"
-
-#: app/templates/index.html:24 app/templates/user.html:47
-msgid "Older posts"
-msgstr "예전 글"
-
-#: app/templates/login.html:12
-msgid "New User?"
-msgstr "새로운 유저인가요?"
-
-#: app/templates/login.html:12
-msgid "Click to Register!"
-msgstr "클릭하여 회원가입하세요!"
-
-#: app/templates/login.html:14
-msgid "Forgot Your Password?"
-msgstr "비밀번호를 잃어버리셨나요?"
-
-#: app/templates/login.html:15
-msgid "Click to Reset It"
-msgstr "클릭하여 초기화하세요"
-
-#: app/templates/reset_password.html:5
-msgid "Reset Your Password"
-msgstr "비밀번호를 초기화하세요"
-
-#: app/templates/user.html:8
-msgid "User"
-msgstr "유저"
-
-#: app/templates/user.html:11
-msgid "Last seen on"
-msgstr "최근 방문"
-
-#: app/templates/user.html:13
-#, python-format
-msgid "%(count)d followers"
-msgstr "%(count)d명의 팔로워"
-
-#: app/templates/user.html:13
-#, python-format
-msgid "%(count)d following"
-msgstr "%(count)d명을 팔로잉 중"
-
-#: app/templates/user.html:15
-msgid "Edit your profile"
-msgstr "프로필 수정하기"
-
-#: app/templates/user.html:20
-msgid "Follow"
-msgstr "팔로우"
-
-#: app/templates/user.html:27
-msgid "Unfollow"
-msgstr "언팔로우"
-
-#~ msgid "%(username)s said %(when)s"
-#~ msgstr "%(when)s %(username)s의 글"
 
