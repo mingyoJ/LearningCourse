@@ -10,6 +10,7 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
+from elasticsearch import Elasticsearch
 
 from config import Config
 
@@ -32,7 +33,7 @@ mail = Mail()
 
 def create_app(config=Config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config)
 
     db.init_app(app)
     migrate.init_app(app, db)
@@ -49,6 +50,8 @@ def create_app(config=Config):
     app.register_blueprint(main_bp)
     app.register_blueprint(errors_bp)
     app.register_blueprint(auth_bp, url_prefix="/auth")
+
+    app.elasticsearch = Elasticsearch([app.config["ELASTICSEARCH_URL"]])
 
     if not app.debug and not app.testing:
         # Send debugging error message to mail
