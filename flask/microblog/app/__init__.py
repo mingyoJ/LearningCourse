@@ -51,7 +51,11 @@ def create_app(config=Config):
     app.register_blueprint(errors_bp)
     app.register_blueprint(auth_bp, url_prefix="/auth")
 
-    app.elasticsearch = Elasticsearch([app.config["ELASTICSEARCH_URL"]])
+    app.elasticsearch = (
+        Elasticsearch([app.config["ELASTICSEARCH_URL"]])
+        if app.config["ELASTICSEARCH_URL"]
+        else None
+    )
 
     if not app.debug and not app.testing:
         # Send debugging error message to mail
