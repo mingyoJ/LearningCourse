@@ -21,6 +21,7 @@ class Config(object):
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     ADMINS = ["mingyo.test@gmail.com"]  # Address that will receive error
+    MAIL_ASCII_ATTACHMENTS = False
 
     # Pagination setting
     POSTS_PER_PAGE = 3
