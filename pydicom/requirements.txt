@@ -1,0 +1,10 @@
+pydicom
+numpy
+pillow
+cython
+git+https://github.com/pydicom/pydicom-data
+pylibjpeg
+pylibjpeg-libjpeg
+pylibjpeg-openjpeg
+
+# git+https://github.com/Who8MyLunch/CharPyLS
