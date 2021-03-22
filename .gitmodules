@@ -1,0 +1,3 @@
+[submodule "pynetdicom/pynetdicom"]
+	path = pynetdicom/pynetdicom
+	url = https://github.com/pydicom/pynetdicom
