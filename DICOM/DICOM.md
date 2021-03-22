@@ -41,7 +41,7 @@ Groups information &rarr; Data sets (ex. X-ray image &larr; Patient ID, ...)
   * Data (Variable)
 
 ## Image Display
-GSDF(DICOM **G**rayscale **S**tandard **D**ata **E**lements)
+GSDF(DICOM **G**rayscale **S**tandard **D**isplay **F**unction)
 * To see, need following:
   * lookup curve
   * device that calibrated to GSDF curve
