@@ -65,7 +65,7 @@ A pure Python package that implements the DICOM networking protocol.
   * AE to AE connection
 * `Requestor` - `Acceptor` relation
   * Requestor: AE that initiating association. Send an `A-ASSOCIATE` message.
-  * Acceptor: Contains a list of proposed presentation context, assocation negotiation items
+  * Acceptor: Contains a list of proposed presentation context, association negotiation items
     * Respond of request:
       * `Acceptance` - association being established
       * `Rejection` - no association (See [Part 8 sec 9.3.4](http://dicom.nema.org/medical/dicom/current/output/chtml/part08/sect_9.3.4.html))
@@ -85,3 +85,15 @@ A pure Python package that implements the DICOM networking protocol.
   * `SOP Class Common Extended` Negotiation
   * `User Identify` Negotiation
   * Conditionally required depending on requested `Service Class`
+
+### Event
+* Data/PDU exchange between services (inter-AE)
+* Data exchange between AEs (intra-AE)
+* Types:
+  * Notification
+    * Don't need to return/yield
+    * Can have multiple handler, raised exception &rarr; log
+  * Intervention
+    * Must return/yield expected value
+    * Only single handler
+
