@@ -1,16 +1,45 @@
-from pydicom.uid import ExplicitVRLittleEndian
+import os
 
-from pynetdicom import AE, debug_logger, evt
-from pynetdicom.sop_class import CTImageStorage
+from pydicom.filewriter import write_file_meta_info
+
+from pynetdicom import (
+    AE,
+    debug_logger,
+    evt,
+    AllStoragePresentationContexts,
+    ALL_TRANSFER_SYNTAXES,
+)
 
 debug_logger()
 
 # Handler must take minimum a single parameter (event=Event instance)
-def handle_store(event):
+def handle_store(event, storage_dir):
+    try:
+        os.makedirs(storage_dir, exist_ok=True)
+    except:
+        # Unable to create output dir
+        return 0xC001
+
+    # Use UID from the C-STORE request (instead of decoding)
+    fname = os.path.join(storage_dir, event.request.AffectedSOPInstanceUID)
+    with open(fname, "wb") as f:
+        # Write the preamble, prefix and file meta info elements
+        f.write(b"\x00" * 128)
+        f.write(b"DICM")
+        write_file_meta_info(f, event.file_meta)
+
+        # Write the raw encoded dataset
+        f.write(event.request.DataSet.getvalue())
+
     return 0x0000
 
-handlers = [(evt.EVT_C_STORE, handle_store)]
+handlers = [(evt.EVT_C_STORE, handle_store, ["out"])]
 
 ae = AE()
-ae.add_supported_context(CTImageStorage, ExplicitVRLittleEndian)
+storage_sop_classes = [
+    cx.abstract_syntax for cx in AllStoragePresentationContexts
+]
+for uid in storage_sop_classes:
+    ae.add_supported_context(uid, ALL_TRANSFER_SYNTAXES)
+
 ae.start_server(('', 11112), block=True, evt_handlers=handlers)
