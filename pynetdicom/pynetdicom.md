@@ -110,3 +110,15 @@ A pure Python package that implements the DICOM networking protocol.
 1. `A-RELEASE-RQ` &rarr; release connection
     * Abort also can close TCP connection.
   
+#### Error for Association failure
+* `TCP Initialization Error`
+  * Wrong IP address or port
+  * Or check firewall 
+* `Called AE title not recognized`
+  * Need `ae_title` setup
+* `Calling AE title not recognized`
+  * Need `ae_title` setup
+* `Local limit exceeded`
+  * SCP has too many associations
+* `Association aborted`
+  * Seen afterwards or during DIMSE messaging
