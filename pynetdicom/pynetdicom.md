@@ -97,3 +97,16 @@ A pure Python package that implements the DICOM networking protocol.
     * Must return/yield expected value
     * Only single handler
 
+## Writing SCU and SCP
+
+### SCU
+
+#### DICOM Networking
+**Association accept is not Service accept**
+1. Requestor: send `A-ASSOCIATE-RQ`
+1. Acceptor: send `A-ASSOCIATE-AC`
+1. Negotiation phase end, association established
+1. Two AEs can use the services with `DIMSE-C` and `DIMSE-N`
+1. `A-RELEASE-RQ` &rarr; release connection
+    * Abort also can close TCP connection.
+  
