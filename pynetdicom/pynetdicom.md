@@ -122,3 +122,15 @@ A pure Python package that implements the DICOM networking protocol.
   * SCP has too many associations
 * `Association aborted`
   * Seen afterwards or during DIMSE messaging
+  
+### SCP
+
+At least one event handler (callable function) should bound to an event.  
+Two event types:
+* Notification event
+  * The user is notified that some event has occurred
+* Intervention event
+  * The user must intervene in some way
+  * Responding to extended negotiation items during association negotiating
+    * Consider if you're using `User Identity negotiation`
+  * Responding to a service request
